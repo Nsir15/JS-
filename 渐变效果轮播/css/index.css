@@ -1,0 +1,76 @@
+.container{
+    margin: 50px auto;
+    width: 1000px;
+    height: 300px;
+    background: red;
+    position: relative;
+}
+.container .wrapper{
+    margin: 0;
+    padding: 0;
+    width:1000px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: orange;
+    list-style: none;
+}
+.container .wrapper .image{
+    height: 100%;
+    width: 1000px;
+    background: pink;
+    position: absolute;
+    opacity: 0;
+    z-index: 0;
+}
+.container .wrapper .image:nth-of-type(1){
+    z-index: 1;
+    opacity: 1;
+}
+
+.container .focus{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px;
+    list-style: none;
+    z-index: 1;
+}
+.container .focus li{
+    width: 14px;
+    height: 14px;
+    margin: 0 4px;
+    border-radius: 7px;
+    background: white;
+    float: left;
+}
+.container .focus li.active{
+    background: red;
+}
+
+.container .arrow{
+    position: absolute;
+    opacity: 0.5;
+    background: url(../img/pre.png) no-repeat;
+    width: 28px;
+    height: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: none;
+}
+.container .arrow:hover{
+    opacity: 1;
+}
+.container .arrowLeft{
+    background-position: 0 0;
+    left: 0;
+}
+.container .arrowRight{
+    background-position: -50px 0px;
+    right: 0;
+}

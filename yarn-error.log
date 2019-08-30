@@ -1,0 +1,36 @@
+Arguments: 
+  /usr/local/Cellar/node/9.11.1/bin/node /Users/nancy/.yarn/bin/yarn.js add jquery 1.11.3
+
+PATH: 
+  /Users/nancy/.yarn/bin:/Users/nancy/.config/yarn/global/node_modules/.bin:/opt/MonkeyDev/bin:/Users/nancy/.swiftenv/shims:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Users/nancy/.rvm/bin
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  9.11.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.npm.taobao.org/1.11.3: Not found
+      at Request.params.callback [as _callback] (/Users/nancy/.yarn/lib/cli.js:66830:18)
+      at Request.self.callback (/Users/nancy/.yarn/lib/cli.js:140464:22)
+      at Request.emit (events.js:180:13)
+      at Request.<anonymous> (/Users/nancy/.yarn/lib/cli.js:141436:10)
+      at Request.emit (events.js:180:13)
+      at IncomingMessage.<anonymous> (/Users/nancy/.yarn/lib/cli.js:141358:12)
+      at Object.onceWrapper (events.js:272:13)
+      at IncomingMessage.emit (events.js:185:15)
+      at endReadableNT (_stream_readable.js:1106:12)
+      at process._tickCallback (internal/process/next_tick.js:178:19)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

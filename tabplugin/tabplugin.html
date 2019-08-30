@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tabplugin</title>
+    <link rel="stylesheet" href="../reset.min.css">
+    <link rel="stylesheet" href="tabplugin.css">
+</head>
+<body>
+    <div class="container">
+        <ul class="tab">
+            <li class="active">事实</li>
+            <li>政治</li>
+            <li>娱乐</li>
+        </ul>
+        <div class="content1 active">事实</div>
+        <div class="content1">政治</div>
+        <div class="content1">娱乐</div>
+    </div>
+    <script src="tabplulgin.js"></script>
+    <script>
+        let container = document.querySelector('.container');
+        // new TabPlugin(container);
+        new TabPlugin(container,{
+            eventType:'mouseenter',
+            contentContainer:'content1'
+        })
+    </script>
+</body>
+</html>

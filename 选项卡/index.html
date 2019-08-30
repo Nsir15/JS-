@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .clear-fix:after{
+            content: '';
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+        .box{
+            margin: 0 auto;
+            width: 700px;
+        }
+        ul{
+            padding: 0;
+            margin: 0;
+            position: relative;
+            top: 1px;
+        }
+        ul>li{
+            list-style: none;
+            float: left;
+            margin-right: 10px;
+            width: 100px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            border: 1px solid black;
+        }
+        .box div{
+            display: none;
+            width: 500px;
+            height: 200px;
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        li.active{
+            border-bottom-color: white;
+            color: red;
+        }
+
+        div.active{
+            display: block;
+        }
+
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
+<body>
+<div class="box" id="box">
+    <ul class="clear-fix">
+        <li class="active">第一个标签</li>
+        <li>第二个标签</li>
+        <li>第三个标签</li>
+    </ul>
+    <div class="active">第一个盒子</div>
+    <div>第二个盒子</div>
+    <div>第三个盒子</div>
+<!--    <script src = 'index.js'></script>-->
+    <script src="index-jQuery.js"></script>
+</div>
+</body>
+</html>

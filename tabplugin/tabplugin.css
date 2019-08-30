@@ -1,0 +1,32 @@
+.container{
+    width: 500px;
+    height: 300px;
+    margin: 20px auto;
+}
+.tab{
+    list-style: none;
+    height: 30px;
+    border: 1px solid lightblue;
+}
+
+.tab li{
+    float: left;
+    margin-right: 30px;
+    line-height: 30px;
+    height: 30px;
+}
+.tab li.active{
+    border-bottom: 1px solid red;
+}
+
+.content1{
+    display: none;
+    height: 200px;
+    border: 1px solid  orange;
+    text-align: center;
+    line-height: 200px;
+}
+
+.container .content1.active{
+    display: block;
+}
