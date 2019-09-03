@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Subscribe</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            background: red;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="box1"></div>
     <script src="subscribe.js"></script>
+    <script src="drag.js"></script>
     <script src="test.js"></script>
+    <script>
+        new Drag(document.querySelector('.box1'));
+    </script>
 </body>
 </html>
