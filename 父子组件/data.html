@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件的data</title>
+</head>
+<body>
+  <div id="app">
+    <my-cnp :title='title'></my-cnp>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- template -->
+  <template id="myCnp"> 
+    <div>
+      <h3>{{title}}</h3>
+      <p>{{message}}</p>
+    </div>
+  </template>
+  <!-- js -->
+  <script>
+    Vue.component('my-cnp',{
+      template:'#myCnp',
+      data:function(){
+        return {
+          message:'我是子组件内部的data'
+        };
+      },
+      props:['title'],
+    });
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'我是组件消息',
+        title:'我是title标题'
+      }
+    });
+  </script>
+</body>
+</html>

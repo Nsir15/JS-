@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>作用域插槽</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <cnp></cnp>
+    <br>
+    <cnp></cnp> -->
+
+    <cnp>
+      <template slot-scope='slotProps'>
+        <ul>
+          <li v-for='item in slotProps.data'>{{item}}</li>
+        </ul>
+      </template>
+    </cnp>
+
+    <br>
+
+    <cnp>
+      <template slot-scope='slotProps'>
+        <span>{{slotProps.data.join(' * ')}}</span>
+      </template>
+    </cnp>
+
+    <br>
+    
+    <cnp>
+      <template slot-scope='slotProps'>
+        <div>{{slotProps.data}}</div>
+      </template>
+    </cnp>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- template部分 -->
+  <!-- <template id="cnp">
+    <div>
+      <div v-for='item in pLanguages'>{{item}}</div>
+    </div>
+  </template> -->
+  <template id="cnp">
+    <div>
+      <slot :data='pLanguages'></slot>
+    </div>
+  </template>
+  <!-- JS代码部分 -->
+  <script>
+    Vue.component('cnp',{
+      template:'#cnp',
+      data(){
+        return {
+          pLanguages:['javascript','objective-c','swift','c++','python'],
+        }
+      },
+    });
+
+    const app = new Vue({
+      el:'#app',
+    });
+  </script>
+</body>
+</html>

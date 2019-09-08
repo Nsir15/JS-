@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>条件判断</title>
+</head>
+<body>
+  <div id="app">
+    <div v-if="username">
+      <span>username:</span>
+      <input placeholder="输入用户名" key='username'>
+    </div>
+    <div v-else>
+      <span>email:</span>
+      <input placeholder="输入邮箱登录" key='email'>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    const app = new Vue({
+      el:'#app',
+      data:{
+        username:true,
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>父子组件</title>
+</head>
+<body>
+
+  <div id="app">
+    <parent-cnp></parent-cnp>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="index.js"></script>
+  <script>
+    // 定义一个子组件
+    const childCnp = Vue.extend({
+      template:`
+        <div>
+          <p>我是子组件</p>
+        </div>
+      `
+    });
+
+    // 父组件
+    const parentCnp = Vue.extend({
+      template:`
+        <div>
+          <p>我是父组件</p>
+          <child-cnp></child-cnp>
+        </div>
+      `,
+      components:{
+        'child-cnp':childCnp
+      }
+    });
+
+    let app = new Vue({
+      el:'#app',
+      components:{
+        'parent-cnp':parentCnp
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>template分离写法</title>
+</head>
+<body>
+
+  <div id="app">
+    <parent-cnp></parent-cnp>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- template -->
+  <!-- <script type="text/x-template" id="myCpn">
+    <div>
+      <p>我是父组件,今天天气不错哦</p>
+      <child-cnp></child-cnp>
+    </div>
+  </script> -->
+
+  <template id="myCpn">
+    <div>
+      <p>我是父组件,今天天气不错哦</p>
+      <child-cnp></child-cnp>
+    </div>
+  </template>
+  <template id="childCnp">
+    <div>
+      <p>我是子组件，你说的对</p>
+    </div>
+  </template>
+<!-- JS -->
+  <script>
+    const childCnp = {
+      template:'#childCnp'
+    };
+    Vue.component('parent-cnp',{
+      template:'#myCpn',
+      components:{
+        'child-cnp':childCnp
+      }
+    });
+
+    let app = new Vue({
+      el:'#app'
+    });
+  </script>
+</body>
+</html>

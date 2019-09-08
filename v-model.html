@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-model表单绑定</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <input type="text" v-model='message'>
+    <h3>{{message}}</h3> -->
+
+    <!-- 多个单选框 -->
+
+    <label for="male">
+      <input type="radio" id="male" name="gender" v-model='gender' :value="sex">男
+    </label>
+    <label for="female">
+      <input type="radio" id="female" name="gender" v-model = 'gender' value="female">女
+    </label>
+    <label for="none">
+      <input type="radio" id="none" name="gender" v-model = 'gender' value="none">人妖
+    </label>
+    <h3>您的性别是：{{gender}}</h3>
+
+
+    <!-- 复选框 -->
+    <!-- 单个复选框 -->
+    <label for="private"><input type="checkbox" id="private" v-model='agree'>是否同意我是你爸爸</label>
+    <h3>I say {{agree}}</h3>
+    <!-- 多个复选框 -->
+    <label><input type="checkbox" value="basketball" v-model='hobby'>篮球</label>
+    <label><input type="checkbox" value="football" v-model='hobby'>足球</label>
+    <label><input type="checkbox" value="ping-pong" v-model='hobby'>乒乓球</label>
+    <label><input type="checkbox" value="crystal-ball" v-model='hobby'>玻璃球</label>
+    <h3>你的爱好是：{{hobby}}</h3>
+
+    <!-- 多选 -->
+    <select v-model='selects' multiple>
+      <option value="apple">苹果</option>
+      <option value="banana">香蕉</option>
+      <option value="orange">橙子</option>
+    </select>
+    <h3>你喜欢的水果有哪些：{{selects}}</h3>
+    <!-- 单选 -->
+    <select v-model='select'>
+      <option value="apple">苹果</option>
+      <option value="banana">香蕉</option>
+      <option value="orange">橙子</option>
+    </select>
+    <h3>你最喜欢的水果是哪个：{{select}}</h3>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'',
+        sex:'male',
+        gender:'none',
+        agree:true,
+        hobby:['crystal-ball'],
+        select:'banana',
+        selects:['banana','apple']
+      }
+    });
+  </script>
+</body>
+</html>

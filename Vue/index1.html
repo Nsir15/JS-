@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="movies">
+    <ul>
+      <li v-for="(movie,index) in movies" :class="{'active':index === currentIndex}" :key="index" @click="click(index)">{{index}}-{{movie}}</li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#movies',
+      data:{
+        movies:['进击的巨人','小鬼当家','怪奇物语','切尔诺贝利','人类清楚计划'],
+        currentIndex:0,
+      },
+      methods:{
+        click:function(index){
+          console.log('click',arguments,index);
+          this.currentIndex = index;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

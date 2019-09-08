@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自定义事件</title>
+</head>
+<body>
+  <div id="app">
+    <h3>最后的次数是{{total}}</h3>
+    <my-button  ref = "myButton" @increment='changeCount' @decrement='changeCount'></my-button>
+    <button @click='click'>获取子组件的count</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <template id="myButton">
+    <div>
+      <h2>我是子组件的,哈哈哈哈哈</h2>
+      <button @click='increment'>+1</button>
+      <button @click='decrement'>-1</button>
+    </div>
+  </template>
+  <script>
+
+    Vue.component('my-button',{
+      template:'#myButton',
+      data:function(){
+        return {
+          count:0
+        }
+      },
+      methods:{
+        increment(){
+          this.count ++;
+          this.$emit('increment',this.count);
+        },
+
+        decrement(){
+          this.count --;
+          this.$emit('decrement',this.count);
+        },
+      }
+    });
+
+    const app =  new Vue({
+      el:'#app',
+      data:{
+        total:0
+      },
+      methods:{
+        changeCount(count){
+          this.total = count;
+        },
+        click(){
+          console.log(this.$refs.myButton.count);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

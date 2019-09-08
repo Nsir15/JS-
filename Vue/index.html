@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{message}}</p>
+    </div>
+
+    <div id="watch">
+        <p>
+            ask a question:
+            <input v-model="question">
+        </p>
+        <p>{{answer}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            message:'Hello Vue'
+        }
+    });
+
+    var watch = new Vue({
+        el:'#watch',
+        data:{
+            question:'',
+            answer:'I cannot give you answer ,utils you have a question'
+        },
+        watch:{
+            question:function(oldQuestion,newQuestion){
+                this.answer = 'waiting for you to stop typing....';
+                this.debounceGetAnswer();
+            }
+        },
+
+        // 生命周期钩子函数，一个实例被创建之后执行
+        created:function(){
+            this.debounceGetAnswer = _.debounce(this.getAnswer,500);
+        },
+
+        methods:{
+            getAnswer:function(){
+                if (this.question.indexOf('?') === -1) {
+                    this.answer = 'Question usually container a question mark!';
+                    return;
+                }
+
+                this.answer = 'Thinking.....';
+                var vm = this;
+                
+            }
+        }
+
+    });
+    </script>
+</body>
+</html>
